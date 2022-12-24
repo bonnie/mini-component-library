@@ -43,6 +43,7 @@ const ProgressBar = ({ value, size }) => {
       aria-valuenow={value}
       style={{ "--bar-width": barWidth + "px" }}
     >
+      <VisuallyHidden>{value}%</VisuallyHidden>
       <Bar style={styles}>
         <Progress width={progressWidth} style={styles} />
       </Bar>
