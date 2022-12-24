@@ -26,6 +26,10 @@ const largePadding = 4;
 const ProgressBar = ({ value, size }) => {
   const styles = SIZES[size];
 
+  if (!styles) {
+    throw new Error(`Unknown size passed to ProgressBar: ${size}`);
+  }
+
   let progressWidth = (barWidth * value) / 100;
 
   if (size === "large") {
