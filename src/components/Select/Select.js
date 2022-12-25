@@ -21,12 +21,17 @@ const Select = ({ label, value, onChange, children }) => {
 
   // all in rem
   const paddingWidthX = (18 + 16) / 16;
-  const dropArrowWidth = 12 / 16;
+  const dropArrowWidth = 24 / 16;
   const selectWidth = displayedValueWidth / 16 + paddingWidthX + dropArrowWidth;
 
   return (
     <SelectWrapper>
-      <DropArrow style={{ "--width": dropArrowWidth + "rem" }}>
+      <DropArrow
+        style={{
+          "--width": dropArrowWidth + "rem",
+          "--right": 10 / 16 + "rem",
+        }}
+      >
         <Icon size={24} id="chevron-down"></Icon>
       </DropArrow>
       <StyledSelect
@@ -56,9 +61,12 @@ const SelectWrapper = styled.span`
 
 const DropArrow = styled.span`
   position: absolute;
-  right: 18px;
-  top: -2px; /* why -2px? bc of top padding in container? */
   width: var(--width);
+  height: var(--width);
+  right: var(--right);
+  top: 0;
+  bottom: 0;
+  margin: auto;
   pointer-events: none; /* allows for clicks to go through to select element sitting behind */
 `;
 
